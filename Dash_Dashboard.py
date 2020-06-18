@@ -11,7 +11,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-conts_DF = pd.read_csv('Shot_Database_2015-2019.csv')
+conts_DF = pd.read_csv('Data\Shot_Database_2015-2019.csv')
 
 x = conts_DF['X-Location']
 y = conts_DF['Y-Location']
