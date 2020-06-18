@@ -1,0 +1,10 @@
+django
+gunicorn
+django-heroku
+requests
+pandas
+numpy
+seaborn
+matplotlib
+plotly
+dash
