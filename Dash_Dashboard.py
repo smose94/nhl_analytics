@@ -17,6 +17,7 @@ x = conts_DF['X-Location']
 y = conts_DF['Y-Location']
 
 app = dash.Dash()
+server = app.server
 """
 def update_chart():
     
