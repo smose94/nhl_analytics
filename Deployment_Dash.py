@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import dash
 import dash_core_components as dcc
@@ -16,7 +15,7 @@ server = app.server
 #Import the data
 data_Shots = pd.read_csv('Shot_database_2015-2019_Processed.csv')
 
-app.layout = html.Div([
+app.layout = html.Div(className='row',children=[
     
     html.H1("NHL Shot Dashboard"),
     
@@ -31,7 +30,6 @@ app.layout = html.Div([
                      value = 2015,
                      style={'width': "40%"}
                      ),
-    
     dcc.Dropdown(id = "select_team",
                      options=[
                          {"label": "All Teams", "value" : 'All'},
@@ -76,9 +74,17 @@ app.layout = html.Div([
     html.Div(id='output_container', children=[]),
     html.Br(),
     
-    dcc.Graph(id='shot_map', figure = {})
+    html.Div(children=[
+        dcc.Graph(id="shot_map",figure = {}, style={'display': 'inline-block'}),
+        dcc.Graph(id="graph2", style={'display': 'inline-block'})
+    ])
+    
     
     ])
+    
+  
+    
+    
 
 @app.callback(
     [Output(component_id='output_container',component_property='children'),
