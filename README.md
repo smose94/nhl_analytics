@@ -1,1 +1,1 @@
-# NHL_Analytics
+# NHL Analytics
