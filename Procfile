@@ -1,1 +1,1 @@
-web: gunicorn nhldashboard.wsgi --log-file -
+web: gunicorn Deployment_Dash:server
