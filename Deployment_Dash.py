@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from Plotly_Rink import rink_shapes
 
@@ -15,9 +16,10 @@ server = app.server
 #Import the data
 data_Shots = pd.read_csv('Shot_database_2015-2019_Processed.csv')
 
-app.layout = html.Div(className='row',children=[
+app.layout = html.Div(children=[
     
-    html.H1("NHL Shot Dashboard"),
+    dbc.Row(children=[
+        html.H1('NHL Shot Dashboard')]),
     
     dcc.Dropdown(id = "select_year",
                      options=[
@@ -75,8 +77,9 @@ app.layout = html.Div(className='row',children=[
     html.Br(),
     
     html.Div(children=[
-        dcc.Graph(id="shot_map",figure = {}, style={'display': 'inline-block'}),
-        dcc.Graph(id="graph2", style={'display': 'inline-block'})
+        dbc.Col(children=[
+            dcc.Graph(id="shot_map",figure = {}, style={'display': 'inline-block'})],
+            width={"size": 6, "offset": 6})
     ])
     
     
@@ -148,7 +151,7 @@ def update_graph(option_selected,team_selected):
     return container, fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
 
 
 
